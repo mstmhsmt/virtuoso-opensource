@@ -72,6 +72,10 @@ int LEVEL_VAR = 4;
 
 #include "util/ssl_compat.h"
 
+#if OPENSSL_VERSION_NUMBER > 0x30000000L
+#include <openssl/provider.h>
+#endif
+
 static void ssl_server_init ();
 
 int ssl_ctx_set_cipher_list(SSL_CTX *ctx, char *cipher_list);
